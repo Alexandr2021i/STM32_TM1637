@@ -1,0 +1,3 @@
+[submodule "STM32_HW_Delay"]
+	path = STM32_HW_Delay
+	url = git@github.com:Alexandr2021i/STM32_HW_Delay.git
