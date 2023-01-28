@@ -1,2 +1,27 @@
-# STM32_TM1637
-STM32 TM1637 lcd 4 segment controller driver implementation using printf algorithm
+# TM1637 драйвер
+Данный дравйер реализует поддержку 4 сегментных дисплеев на базе контроллера TM1637 используюя логику стандартного printf.
+
+# Использование
+При загрузке репозитория помним что есть сабмодуль, поэтому юзаем правильно: git clone --recurse-submodules git@github.com:Alexandr2021i/STM32_TM1637.git
+
+```
+#include "tm1637.h"
+
+bool DispPresent = TM1638_Init(GPIOA, GPIO_PIN_1, GPIOA, GPIO_PIN_1); // Пины и порты на свои заменить
+...
+
+TM1638_SetBrightness(0);    // Отключить дисплей
+TM1638_SetBrightness(1..8); // Выставить яркость
+...
+TM1638_ClearDisplay();      // Очистить
+...
+TM1638_printf(daLeft, "%.1f", float/double value);    // daLeft - выравнивание по левому краю, daRight - выравнивание по правому краю
+TM1638_printf(daLeft, "%u", unsigned value);
+TM1638_printf(daLeft, "%d", signed value);
+TM1638_printf(daLeft, "%02X", value);                 // Выврод в HEX фомате
+TM1638_printf(daLeft, "Abcd");                        // Просто текст
+```
+В общем пользуемся так же как и printf'ом, не забывая что можно вывести 4 символа, так же помня что символ "," или "." на длину не влияют - это означает что на входе, например "12.45" (5 символов) на выходе будет XXXX коды сегментов (4 символа) так как точка объединяется с нужным сегментом в один код одного сегмента.
+
+# Важно
+Если используется ruduced libc / newlib-nano необходимо включить опции библиотеки libc USE FLOAT IN PRINTF [-u_printf_float] в противном случае вывод "%f" "%Lf" будет невозможен.

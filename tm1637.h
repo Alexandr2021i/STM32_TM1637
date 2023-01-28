@@ -65,5 +65,9 @@ uint8_t TM1638_SetBrightness(uint8_t Level);
  */
 void TM1638_printf(TM1638_Alignment Alignment, const char* format, ...);
 
+/*
+ * Очистить дисплей
+ */
+uint8_t TM1638_ClearDisplay(void);
 
 #endif /* TM1637_TM1637_H_ */
