@@ -241,16 +241,23 @@ static uint8_t WriteByte(uint8_t DisplayNo, uint8_t Data)
 
 uint8_t TM1638_SetBrightness(uint8_t DisplayNo, uint8_t Level)
 {
+    if (!Displays[DisplayNo].Inited)
+        return;
+    
     uint8_t ACK = 0;
-
+    
     StartSequence(DisplayNo);
     ACK = WriteByte(DisplayNo, CMD_SET_BRIGHTNESS + Level);
     StopSequence(DisplayNo);
+    
     return ACK;
 }
 
 uint8_t TM1638_ClearDisplay(uint8_t DisplayNo)
 {
+    if (!Displays[DisplayNo].Inited)
+        return;
+    
     uint8_t ACK = 1;
 
     StartSequence(DisplayNo);
@@ -275,8 +282,10 @@ uint8_t TM1638_ClearDisplay(uint8_t DisplayNo)
 void TM1638_printf(uint8_t DisplayNo, TM1638_Alignment Alignment,
                    const char *format, ...)
 {
-    if (NULL == format)
+    if ((NULL == format) ||
+        (!Displays[DisplayNo].Inited))
         return;
+    
     memset(Displays[DisplayNo].STR_BUF, 0x00,
            sizeof(Displays[DisplayNo].STR_BUF));
 
