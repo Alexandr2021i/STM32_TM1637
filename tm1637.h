@@ -30,7 +30,7 @@ typedef enum
 }
 TM1638_Alignment;
 
-/*
+/* TM1638_Init
  * Базовая инициализация:
  * DisplayNo - индекс дисплея
  * DIO_Port  - порт пина DIO, например GPIOC
@@ -45,7 +45,7 @@ TM1638_Alignment;
 uint8_t TM1638_Init(uint8_t DisplayNo, GPIO_TypeDef *DIO_Port, uint8_t DIO_Pin,
                     GPIO_TypeDef *CLK_Port, uint8_t CLK_Pin);
 
-/*
+/* TM1638_SetBrightness
  * Установить яркость
  * DisplayNo - индекс дисплея
  * Level     - яркость:
@@ -59,7 +59,7 @@ uint8_t TM1638_Init(uint8_t DisplayNo, GPIO_TypeDef *DIO_Port, uint8_t DIO_Pin,
  */
 uint8_t TM1638_SetBrightness(uint8_t DisplayNo, uint8_t Level);
 
-/*
+/* TM1638_printf
  * Вывести на дисплей, используется стандартный алгоритм printf.
  * DisplayNo - индекс дисплея
  * Alignment - определяет выравнивание слева [daLeft] или справа [daRight],
@@ -72,12 +72,11 @@ uint8_t TM1638_SetBrightness(uint8_t DisplayNo, uint8_t Level);
  * и т.д.
  * можно просто текст
  * printf("fail")		"FAIL"
- *
  */
 void TM1638_printf(uint8_t DisplayNo, TM1638_Alignment Alignment,
                    const char *format, ...);
 
-/*
+/* TM1638_ClearDisplay
  * DisplayNo - индекс дисплея
  * Очистить дисплей
  *

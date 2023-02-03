@@ -242,7 +242,7 @@ static uint8_t WriteByte(uint8_t DisplayNo, uint8_t Data)
 uint8_t TM1638_SetBrightness(uint8_t DisplayNo, uint8_t Level)
 {
     if (!Displays[DisplayNo].Inited)
-        return;
+        return 0;
     
     uint8_t ACK = 0;
     
@@ -256,7 +256,7 @@ uint8_t TM1638_SetBrightness(uint8_t DisplayNo, uint8_t Level)
 uint8_t TM1638_ClearDisplay(uint8_t DisplayNo)
 {
     if (!Displays[DisplayNo].Inited)
-        return;
+        return 0;
     
     uint8_t ACK = 1;
 
