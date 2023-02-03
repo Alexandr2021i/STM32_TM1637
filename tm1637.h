@@ -66,7 +66,7 @@ uint8_t TM1638_SetBrightness(uint8_t DisplayNo, uint8_t Level);
  * format    - формат вывода
  * ...       - аргументы
  *
- * printf("%u", 10)	    "10  " или "  10"
+ * printf("%u", 10)     "10  " или "  10"
  * printf("%d", -38)    "-38 " или " -38"
  * printf("%.1f", 4.51) "4.5 " или " 4.5"
  * и т.д.
