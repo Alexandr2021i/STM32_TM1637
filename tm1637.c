@@ -25,9 +25,9 @@ TTM1637Display;
 static TTM1637Display Displays[DISPLAYS_COUNT] = { 0 };
 
 // Базовые использованне команды (см. даташит)
-#define CMD_AUTO_INC_ADDR_MODE		0x40
-#define CMD_RESET_ADDR				0xC0
-#define CMD_SET_BRIGHTNESS			0x87
+#define CMD_AUTO_INC_ADDR_MODE      0x40
+#define CMD_RESET_ADDR              0xC0
+#define CMD_SET_BRIGHTNESS          0x87
 
 // Ограничение скорости обмена I/O по даташиту не более 250 КГц
 // 250 КГц это 4 мкСек / 2 = 2 мкСек
