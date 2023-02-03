@@ -24,7 +24,11 @@
 #define DISPLAYS_COUNT		1
 
 // Тип выравнивания (по левому краю или правому)
-typedef enum { daLeft = 0, daRight } TM1638_Alignment;
+typedef enum
+{
+    daLeft = 0, daRight
+}
+TM1638_Alignment;
 
 /*
  * Базовая инициализация:
@@ -38,7 +42,8 @@ typedef enum { daLeft = 0, daRight } TM1638_Alignment;
  * 0 - контроллер не ответил или проблема с GPIO
  * 1 - все отлично
  */
-uint8_t TM1638_Init(uint8_t DisplayNo, GPIO_TypeDef* DIO_Port, uint8_t DIO_Pin, GPIO_TypeDef* CLK_Port, uint8_t CLK_Pin);
+uint8_t TM1638_Init(uint8_t DisplayNo, GPIO_TypeDef *DIO_Port, uint8_t DIO_Pin,
+                    GPIO_TypeDef *CLK_Port, uint8_t CLK_Pin);
 
 /*
  * Установить яркость
@@ -69,7 +74,8 @@ uint8_t TM1638_SetBrightness(uint8_t DisplayNo, uint8_t Level);
  * printf("fail")		"FAIL"
  *
  */
-void TM1638_printf(uint8_t DisplayNo, TM1638_Alignment Alignment, const char* format, ...);
+void TM1638_printf(uint8_t DisplayNo, TM1638_Alignment Alignment,
+                   const char *format, ...);
 
 /*
  * DisplayNo - индекс дисплея
@@ -80,6 +86,5 @@ void TM1638_printf(uint8_t DisplayNo, TM1638_Alignment Alignment, const char* fo
  * 1 - все отлично
  */
 uint8_t TM1638_ClearDisplay(uint8_t DisplayNo);
-
 
 #endif /* TM1637_TM1637_H_ */
