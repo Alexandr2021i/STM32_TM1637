@@ -34,11 +34,11 @@ static TTM1637Display Displays[DISPLAYS_COUNT] = { 0 };
 #define CLOCK_DELAY_HALF			2
 
 // Ногодрыг (сокращено для удобства)
-#define DIO_HIGH(DN)	HAL_GPIO_WritePin(Displays[DN].TM_DIO_Port, Displays[DN].TM_DIO_Pin, GPIO_PIN_SET)
-#define DIO_LOW(DN)		HAL_GPIO_WritePin(Displays[DN].TM_DIO_Port, Displays[DN].TM_DIO_Pin, GPIO_PIN_RESET)
-#define DIO_GET(DN)		!HAL_GPIO_ReadPin(Displays[DN].TM_DIO_Port, Displays[DN].TM_DIO_Pin)
-#define CLK_HIGH(DN)	HAL_GPIO_WritePin(Displays[DN].TM_CLK_Port, Displays[DN].TM_CLK_Pin, GPIO_PIN_SET)
-#define CLK_LOW(DN)		HAL_GPIO_WritePin(Displays[DN].TM_CLK_Port, Displays[DN].TM_CLK_Pin, GPIO_PIN_RESET)
+#define DIO_HIGH(DN)    HAL_GPIO_WritePin(Displays[DN].TM_DIO_Port, Displays[DN].TM_DIO_Pin, GPIO_PIN_SET)
+#define DIO_LOW(DN)     HAL_GPIO_WritePin(Displays[DN].TM_DIO_Port, Displays[DN].TM_DIO_Pin, GPIO_PIN_RESET)
+#define DIO_GET(DN)     !HAL_GPIO_ReadPin(Displays[DN].TM_DIO_Port, Displays[DN].TM_DIO_Pin)
+#define CLK_HIGH(DN)    HAL_GPIO_WritePin(Displays[DN].TM_CLK_Port, Displays[DN].TM_CLK_Pin, GPIO_PIN_SET)
+#define CLK_LOW(DN)     HAL_GPIO_WritePin(Displays[DN].TM_CLK_Port, Displays[DN].TM_CLK_Pin, GPIO_PIN_RESET)
 
 // Переключает ногу DIO в пушпул выход
 static void DIO_OUT_MODE(uint8_t DisplayNo)
